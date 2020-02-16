@@ -57,7 +57,7 @@ public class UserDaoImpl implements UserDao {
             if (transaction != null) {
                 transaction.rollback();
             }
-            throw new RuntimeException("Can't get user", e);
+            throw new RuntimeException("Can't get user with id", e);
         }
     }
 }

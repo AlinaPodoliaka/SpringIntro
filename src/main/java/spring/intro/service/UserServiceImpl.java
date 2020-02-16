@@ -10,6 +10,7 @@ import spring.intro.model.User;
 
 @Service
 public class UserServiceImpl implements UserService {
+
     private UserDao userDao;
 
     @Autowired

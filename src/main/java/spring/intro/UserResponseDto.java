@@ -12,7 +12,6 @@ public class UserResponseDto {
     }
 
     public UserResponseDto() {
-
     }
 
     public String getName() {
@@ -32,4 +31,3 @@ public class UserResponseDto {
     }
 
 }
-

@@ -15,6 +15,7 @@ import spring.intro.service.UserService;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
     @Autowired
     private UserService userService;
 
