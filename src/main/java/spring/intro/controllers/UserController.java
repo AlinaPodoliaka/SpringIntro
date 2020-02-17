@@ -42,14 +42,21 @@ public class UserController {
 
     @GetMapping(value = "/{id}")
     private UserResponseDto getUser(@PathVariable Long id) {
-        UserResponseDto userResponseDto = new UserResponseDto(userService.getById(id));
-        return userResponseDto;
+        User user = userService.getById(id);
+        return getUserResponseDto(user);
     }
 
     @GetMapping(value = "/")
     private List<UserResponseDto> getUsers() {
         List<UserResponseDto> userResponseDtoList = new ArrayList<>();
-        userService.listUsers().forEach(user -> userResponseDtoList.add(new UserResponseDto(user)));
+        userService.listUsers().forEach(user -> userResponseDtoList.add(getUserResponseDto(user)));
         return userResponseDtoList;
+    }
+
+    private UserResponseDto getUserResponseDto(User user) {
+        UserResponseDto userResponseDto = new UserResponseDto();
+        userResponseDto.setName(user.getName());
+        userResponseDto.setSurname(user.getSurname());
+        return userResponseDto;
     }
 }
