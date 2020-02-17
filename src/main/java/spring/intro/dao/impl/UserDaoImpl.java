@@ -7,7 +7,6 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -49,15 +48,9 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getById(Long id) {
-        Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
-            Query<User> query = session.createQuery("FROM User WHERE id = :id");
-            query.setParameter("id", id);
-            return query.uniqueResult();
+            return session.get(User.class,id);
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
             throw new RuntimeException("Can't get user with id", e);
         }
     }

@@ -49,9 +49,7 @@ public class UserController {
     @GetMapping(value = "/")
     private List<UserResponseDto> getUsers() {
         List<UserResponseDto> userResponseDtoList = new ArrayList<>();
-        for (User user : userService.listUsers()) {
-            userResponseDtoList.add(new UserResponseDto(user));
-        }
+        userService.listUsers().forEach(user -> userResponseDtoList.add(new UserResponseDto(user)));
         return userResponseDtoList;
     }
 }
