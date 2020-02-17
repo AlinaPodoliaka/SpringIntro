@@ -3,6 +3,7 @@ package spring.intro;
 import spring.intro.model.User;
 
 public class UserResponseDto {
+
     private String name;
     private String surname;
 

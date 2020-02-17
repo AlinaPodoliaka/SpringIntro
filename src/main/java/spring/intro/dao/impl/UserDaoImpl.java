@@ -16,6 +16,7 @@ import spring.intro.model.User;
 
 @Repository
 public class UserDaoImpl implements UserDao {
+
     @Autowired
     public SessionFactory sessionFactory;
 

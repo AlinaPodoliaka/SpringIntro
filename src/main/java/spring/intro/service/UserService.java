@@ -11,4 +11,5 @@ public interface UserService {
     List<User> listUsers();
 
     User getById(Long id);
+
 }

@@ -11,4 +11,5 @@ public interface UserDao {
     List<User> listUsers();
 
     User getById(Long id);
+
 }

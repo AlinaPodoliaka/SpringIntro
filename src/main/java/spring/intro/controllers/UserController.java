@@ -24,24 +24,19 @@ public class UserController {
         User user1 = new User();
         user1.setName("Martin");
         user1.setSurname("Fourcade");
-
         User user2 = new User();
         user2.setName("Simon");
         user2.setSurname("Fourcade");
-
         User user3 = new User();
         user3.setName("Tarij");
         user3.setSurname("Boe");
-
         User user4 = new User();
         user4.setName("Johannes");
         user4.setSurname("Boe");
-
         userService.add(user1);
         userService.add(user2);
         userService.add(user3);
         userService.add(user4);
-
         return "Success";
     }
 
