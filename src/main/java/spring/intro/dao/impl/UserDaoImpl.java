@@ -15,6 +15,7 @@ import spring.intro.model.User;
 
 @Repository
 public class UserDaoImpl implements UserDao {
+
     @Autowired
     public SessionFactory sessionFactory;
 
@@ -42,6 +43,15 @@ public class UserDaoImpl implements UserDao {
             return session.createQuery(criteriaQuery).getResultList();
         } catch (Exception e) {
             throw new RuntimeException("Can't get all users", e);
+        }
+    }
+
+    @Override
+    public User getById(Long id) {
+        try (Session session = sessionFactory.openSession()) {
+            return session.get(User.class,id);
+        } catch (Exception e) {
+            throw new RuntimeException("Can't get user with id", e);
         }
     }
 }
